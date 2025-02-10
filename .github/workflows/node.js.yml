@@ -18,21 +18,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js
+    - name: 读取仓库内容 🧐
+      uses: actions/checkout@v4
+
+    - name: 使用 Node.js 📎
       uses: actions/setup-node@v4
       with:
         node-version: '16.18.1'
 
-    - name: 安装依赖
+    - name: 安装依赖 🛠
       run: 
         npm install
         npm ci
 
-    - name: 项目打包
+    - name: 项目打包 🔧
       run: npm run build
     
-    - name: Deploy 🚀
+    - name: 部署 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: dist # The folder the action should deploy.
